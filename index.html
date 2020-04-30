@@ -692,7 +692,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     if (metric == "Happiness Rank" || metric == "Happiness Score") {
       if (metric == "Happiness Rank") {
         y_legend.domain([0, metricByRange[metric][1]]);
-        d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][0]);
+        d3.select("#metric_legend_stop2").attr("stop-color", "white");
         d3.select("#metric_legend_stop1").attr("stop-color", metricBycolors[metric][1]);
       } else if (metric == "Happiness Score") {
         y_legend.domain(metricByRange[metric].slice().reverse());
@@ -702,6 +702,8 @@ input[type="range"]::-webkit-slider-runnable-track {
       legend_label1_x = 55;
     } else {
       y_legend.domain([metricByRange[metric][1], 0]);
+      d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
+      d3.select("#metric_legend_stop1").attr("stop-color", "white");
     }
 
     yAxis_legend = d3.axisBottom()
