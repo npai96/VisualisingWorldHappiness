@@ -688,7 +688,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     var legend_label2 = "Most Important";
     var legend_label1_x = 69;
 
-    if (metric == "Happiness Rank") {
+    if (metric == "Happiness Rank" || metric == "Happiness Score") {
       y_legend.domain([0, metricByRange[metric][1]]);
       legend_label1 = "Least Happy";
       legend_label2 = "Most Happy";
@@ -1665,10 +1665,10 @@ function chart_zoomed() {
         .call(yAxis_legend)
         .append("text")
         .attr("y", -30)
-        .attr("x", 69)
+        .attr("x", 55)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Least Important");
+        .text("Least Happy");
 
    key.append("g")
         .attr("class", "y axis")
@@ -1680,7 +1680,7 @@ function chart_zoomed() {
         .attr("x", legend_w-10)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Most Important");
+        .text("Most Happy");
 
 
   
