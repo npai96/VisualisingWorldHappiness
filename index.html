@@ -1464,6 +1464,7 @@ function chart_zoomed() {
     compare_chart.selectAll(".line").attr("transform", d3.event.transform);
     compare_chart.selectAll(".compare_chart_circle").attr("transform", d3.event.transform);
     d3.selectAll('.line').style("stroke-width", 2/d3.event.transform.k);
+    d3.selectAll('.compare_chart_circle').style("stroke-width", 2/d3.event.transform.k);
     compare_x_axis_g.call(compare_x_axis.scale(d3.event.transform.rescaleX(x)));
     compare_y_axis_g.call(compare_y_axis.scale(d3.event.transform.rescaleY(y)));
 }
