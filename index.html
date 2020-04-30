@@ -696,6 +696,8 @@ input[type="range"]::-webkit-slider-runnable-track {
         d3.select("#metric_legend_stop1").attr("stop-color", metricBycolors[metric][1]);
       } else if (metric == "Happiness Score") {
         y_legend.domain(metricByRange[metric].slice().reverse());
+        d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
+        d3.select("#metric_legend_stop1").attr("stop-color", "white");
       }
       legend_label1 = "Least Happy";
       legend_label2 = "Most Happy";
