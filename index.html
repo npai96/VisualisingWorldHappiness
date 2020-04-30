@@ -684,28 +684,28 @@ input[type="range"]::-webkit-slider-runnable-track {
 
   function update_legend() {
     // console.log("RANGE: ", metric, metricByRange[metric][0])
-//     d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
     var legend_label1 = "Less Important";
     var legend_label2 = "More Important";
     var legend_label1_x = 69;
       
-    if (metric == "Happiness Rank" || metric == "Happiness Score") {
-      if (metric == "Happiness Rank") {
+     if (metric == "Happiness Rank") {
         y_legend.domain([0, metricByRange[metric][1]]);
         d3.select("#metric_legend_stop2").attr("stop-color", "white");
         d3.select("#metric_legend_stop1").attr("stop-color", metricBycolors[metric][1]);
+        legend_label1 = "Least Happy";
+        legend_label2 = "Most Happy";
+        legend_label1_x = 55;
       } else if (metric == "Happiness Score") {
-        y_legend.domain(metricByRange[metric].slice().reverse());
-        d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
-        d3.select("#metric_legend_stop1").attr("stop-color", "white");
-      }
-      legend_label1 = "Least Happy";
-      legend_label2 = "Most Happy";
-      legend_label1_x = 55;
-    } else {
-      y_legend.domain([metricByRange[metric][1], 0]);
-      d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
-      d3.select("#metric_legend_stop1").attr("stop-color", "white");
+            y_legend.domain(metricByRange[metric].slice().reverse());
+            d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
+            d3.select("#metric_legend_stop1").attr("stop-color", "white");
+            legend_label1 = "Least Happy";
+            legend_label2 = "Most Happy";
+            legend_label1_x = 55;
+      } else {
+          y_legend.domain([metricByRange[metric][1], 0]);
+          d3.select("#metric_legend_stop2").attr("stop-color", metricBycolors[metric][1]);
+          d3.select("#metric_legend_stop1").attr("stop-color", "white");
     }
 
     yAxis_legend = d3.axisBottom()
