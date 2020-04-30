@@ -688,12 +688,12 @@ input[type="range"]::-webkit-slider-runnable-track {
     var legend_label2 = "Most Important";
     var legend_label1_x = 69;
       
-    if (metric == "Happiness Score") {
-      legend_label1 = "Least Happy";
-      legend_label2 = "Most Happy";
-      legend_label1_x = 55;  
-    } else if (metric == "Happiness Rank") {
-      y_legend.domain([0, metricByRange[metric][1]]);
+    if (metric == "Happiness Rank" || metric == "Happiness Score") {
+      if (metric == "Happiness Rank") {
+        y_legend.domain([0, metricByRange[metric][1]]);
+      } else if (metric == "Happiness Score") {
+        y_legend.domain(metricByRange[metric].slice().reverse());
+      }
       legend_label1 = "Least Happy";
       legend_label2 = "Most Happy";
       legend_label1_x = 55;
